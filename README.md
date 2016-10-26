@@ -1,6 +1,6 @@
-# Algoritimos (Aula 6)
+# Projeto Calcular (Aula 11)
 
-Projeto contendo a implementação dos algoritimos propostos na *Aula 7*
+Projeto contendo a implementação do projeto proposto na *Aula 11*
 
 [![Quality Gate](https://sonarqube.com/api/badges/gate?key=br.ufg.cs.cleydsonjr:cs20162-aula11)](https://sonarqube.com/dashboard/index?id=br.ufg.cs.cleydsonjr%3Acs20162-aula11)
 
