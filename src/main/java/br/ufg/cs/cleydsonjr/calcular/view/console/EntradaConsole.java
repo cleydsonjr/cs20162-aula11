@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2016. Cleydson José de Figueiredo Júnior
+ * Creative Commons Attribution 4.0 International License.
+ */
 package br.ufg.cs.cleydsonjr.calcular.view.console;
 
 import java.util.Scanner;
@@ -10,59 +14,6 @@ import static java.lang.System.out;
  */
 public class EntradaConsole {
     private Scanner scanner = new Scanner(in);
-
-    /**
-     * Imprime uma pergunta para o usuário e lê a entrada, esperando que seja um Inteiro
-     *
-     * @param pergunta O texto da pergutna que deve ser feita
-     * @return O número já convertido para Inteiro
-     * @see Integer#parseInt(String)
-     */
-    public Integer pergunteInteiro(String pergunta) {
-        String entradaString = pergunteString(pergunta);
-
-        boolean entradaValida = false;
-        int entradaInteiro = 0;
-
-        while (!entradaValida) {
-            try {
-                entradaInteiro = Integer.parseInt(entradaString);
-                entradaValida = true;
-            } catch (NumberFormatException ignored) {
-                out.println("Entrada inválida. Tente novamente");
-                entradaValida = false;
-                entradaString = pergunteString(pergunta);
-            }
-        }
-
-        return entradaInteiro;
-    }
-
-    /**
-     * Imprime uma pergunta para o usuário e lê a entrada, esperando que seja um Número
-     *
-     * @param pergunta O texto da pergutna que deve ser feita
-     * @return O número já convertido para Double
-     * @see Double#parseDouble(String)
-     */
-    public Double pergunteDouble(String pergunta) {
-        String entradaString = pergunteString(pergunta);
-        boolean entradaValida = false;
-        double entradaDouble = 0;
-
-        while (!entradaValida) {
-            try {
-                entradaDouble = Double.parseDouble(entradaString);
-                entradaValida = true;
-            } catch (NumberFormatException ignored) {
-                out.println("Entrada inválida. Tente novamente");
-                entradaValida = false;
-                entradaString = pergunteString(pergunta);
-            }
-        }
-
-        return entradaDouble;
-    }
 
     /**
      * Imprime uma pergunta para o usuário e lê o texto de entrada

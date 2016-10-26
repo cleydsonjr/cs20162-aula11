@@ -15,14 +15,19 @@ import br.ufg.cs.cleydsonjr.calcular.view.console.CalcularConsoleView;
  */
 public final class Application {
 
+    /**
+     * @param args Argumentos de inicio da aplicação. Pode receber uma expressão.
+     */
     public static void main(String[] args) {
+        // Instancia as implementações
         CalculadorExpressao calculadorExpressao = new CalculadorExpressaoParser();
         CalcularView calcularView = new CalcularConsoleView();
 
+        // Cria o controller injetando as dependências
         CalcularController controller = new CalcularController(calculadorExpressao, calcularView);
 
+        // Tenta obter a expressão informada nos argumentos
         String expressaoInformada = null;
-
         if (args.length > 0) {
             expressaoInformada = args[0];
         }
