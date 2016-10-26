@@ -10,6 +10,7 @@ package br.ufg.cs.cleydsonjr.calcular.main;
 public final class Application {
 
     public static void main(String[] args) {
-
+        System.out.println("Projeto Calcular");
+        System.exit(0);
     }
 }
