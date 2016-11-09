@@ -7,6 +7,7 @@ package br.ufg.cs.cleydsonjr.calcular.model;
 /**
  * Interface que expõe a regra de negócio do programa.
  */
+@FunctionalInterface
 public interface CalculadorExpressao {
 
     /**
@@ -16,5 +17,5 @@ public interface CalculadorExpressao {
      * @return O valor da expressão calculado
      * @throws IllegalArgumentException Caso a expressão seja inválida
      */
-    float calculeValor(String textoExpressao) throws IllegalArgumentException;
+    float calculeValor(String textoExpressao);
 }

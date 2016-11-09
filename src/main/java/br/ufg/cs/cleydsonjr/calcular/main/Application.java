@@ -13,7 +13,10 @@ import br.ufg.cs.cleydsonjr.calcular.view.console.CalcularConsoleView;
 /**
  * Classe principal para execução do programa.
  */
-public abstract class Application {
+public final class Application {
+
+    private Application() {
+    }
 
     /**
      * @param args Argumentos de inicio da aplicação. Pode receber uma expressão.

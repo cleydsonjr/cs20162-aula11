@@ -39,6 +39,7 @@ public class CalcularConsoleView implements CalcularView {
      *
      * @return A expressão informada no console
      */
+    @Override
     public final String pergunteExpressao() {
         return entradaConsole.pergunteString("Informe a expressão:", true);
     }
@@ -48,6 +49,7 @@ public class CalcularConsoleView implements CalcularView {
      *
      * @param resultado o resultado da expressão.
      */
+    @Override
     public final void informeResultado(final float resultado) {
         saida.println(resultado);
     }
@@ -57,6 +59,7 @@ public class CalcularConsoleView implements CalcularView {
      *
      * @param mensagem o resultado da expressão.
      */
+    @Override
     public final void informeErro(final String mensagem) {
         saida.println(mensagem);
     }

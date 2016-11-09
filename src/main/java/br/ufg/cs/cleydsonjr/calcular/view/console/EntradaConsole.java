@@ -52,10 +52,10 @@ public class EntradaConsole {
      * @return O texto que o usuário inseriu
      */
     public final String pergunteString(final String pergunta, final boolean obrigarEntrada) {
-        String entrada = pergunteString(pergunta);
+        String entrada = pergunteString(pergunta).trim();
 
         if (obrigarEntrada) {
-            while (entrada.trim().equals("")) {
+            while ("".equals(entrada)) {
                 entrada = pergunteString(pergunta);
             }
         }

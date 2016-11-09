@@ -22,9 +22,9 @@ public class CalculadorExpressaoParser implements CalculadorExpressao {
      *
      * @param textoExpressao A expressão para analisar e calcular.
      * @return O valor da expressão calculado
-     * @throws IllegalArgumentException Caso a expressão seja inválida
      */
-    public final float calculeValor(final String textoExpressao) throws IllegalArgumentException {
+    @Override
+    public final float calculeValor(final String textoExpressao) {
         Expressao expressao = expandaExpressao(textoExpressao);
         return expressao.valor();
     }
