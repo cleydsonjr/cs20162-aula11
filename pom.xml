@@ -147,6 +147,7 @@
   </profiles>
 
   <build>
+    <finalName>Calcular</finalName>
     <plugins>
 
       <plugin>
