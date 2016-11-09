@@ -24,7 +24,7 @@ public interface CalcularView {
     void informeResultado(float resultado);
 
     /**
-     * Usado para informa o usuário de um erro ocorrido ao processar a expressão;
+     * Usado para informa o usuário de um erro ocorrido ao processar a expressão.
      *
      * @param mensagem A mensagem do erro.
      */

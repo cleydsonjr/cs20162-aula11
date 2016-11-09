@@ -8,44 +8,57 @@ import br.ufg.cs.cleydsonjr.calcular.model.CalculadorExpressao;
 import br.ufg.cs.cleydsonjr.calcular.view.CalcularView;
 
 /**
- * Controller da aplicação. Contendo o fluxo de execução do projeto
+ * Controller da aplicação. Contendo o fluxo de execução do projeto.
  */
 public class CalcularController {
+    /**
+     * Instância do calculador de expressões.
+     */
     private CalculadorExpressao calculadorExpressao;
+
+    /**
+     * Instância do view para comunicação com o usuário.
+     */
     private CalcularView calcularView;
 
     /**
      * Construtor que recebe as dependências de lógica e de interface.
      *
-     * @param calculadorExpressao Implementação da regra de negócio.
-     * @param calcularView        Implementação da interface com o usuário.
+     * @param calculadorExpressaoPadrao Implementação da regra de negócio.
+     * @param calcularViewPadrao        Implementação da interface com o usuário.
      */
-    public CalcularController(CalculadorExpressao calculadorExpressao, CalcularView calcularView) {
-        this.calculadorExpressao = calculadorExpressao;
-        this.calcularView = calcularView;
+    public CalcularController(final CalculadorExpressao calculadorExpressaoPadrao,
+                              final CalcularView calcularViewPadrao) {
+        this.calculadorExpressao = calculadorExpressaoPadrao;
+        this.calcularView = calcularViewPadrao;
     }
 
     /**
      * Fluxo principal de execução do programa.
      *
      * @param expressaoInformada A expressão informada no inicio da execução do programa.
+     * @return O número de status para a execução. 0 sucesso para sucesso. 1 para erro.
      */
-    public void executeAplicacao(String expressaoInformada) {
+    public final int executeAplicacao(final String expressaoInformada) {
+        String expressaoCalcular;
+
         if (expressaoInformada == null) {
             // Caso o usuário não tenha informado a expressão no inicio, pergunta.
-            expressaoInformada = calcularView.pergunteExpressao();
+            expressaoCalcular = calcularView.pergunteExpressao();
+        } else {
+            expressaoCalcular = expressaoInformada;
         }
 
         try {
             // Repassa a expressão para obter o valor e imprime para o usuário
-            float valor = calculadorExpressao.calculeValor(expressaoInformada);
+            float valor = calculadorExpressao.calculeValor(expressaoCalcular);
             calcularView.informeResultado(valor);
 
-            System.exit(0);
+            return 0;
         } catch (IllegalArgumentException ex) {
             // Expressão inválida informada.
             calcularView.informeErro(ex.getMessage());
-            System.exit(1);
+            return 1;
         }
     }
 }

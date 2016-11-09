@@ -24,19 +24,19 @@ public class CalculadorExpressaoParser implements CalculadorExpressao {
      * @return O valor da expressão calculado
      * @throws IllegalArgumentException Caso a expressão seja inválida
      */
-    public float calculeValor(String textoExpressao) throws IllegalArgumentException {
+    public final float calculeValor(final String textoExpressao) throws IllegalArgumentException {
         Expressao expressao = expandaExpressao(textoExpressao);
         return expressao.valor();
     }
 
     /**
-     * Realiza a quebra do texto da expressão e converte em Expressao
+     * Realiza a quebra do texto da expressão e converte em Expressao.
      *
      * @param expressao O texto da expressão para converter.
      * @return A expressão montada
      * @see Expressao
      */
-    private Expressao expandaExpressao(String expressao) {
+    private Expressao expandaExpressao(final String expressao) {
         List<Token> tokens = new Lexer(expressao).tokenize();
         Parser parser = new Parser(tokens);
         return parser.expressao();

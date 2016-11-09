@@ -13,13 +13,13 @@ import br.ufg.cs.cleydsonjr.calcular.view.console.CalcularConsoleView;
 /**
  * Classe principal para execução do programa.
  */
-public final class Application {
+public abstract class Application {
 
     /**
      * @param args Argumentos de inicio da aplicação. Pode receber uma expressão.
      */
-    public static void main(String[] args) {
-        // Instancia as implementações
+    public static void main(final String[] args) {
+        // Instancia as implementações padrões
         CalculadorExpressao calculadorExpressao = new CalculadorExpressaoParser();
         CalcularView calcularView = new CalcularConsoleView();
 
@@ -32,6 +32,8 @@ public final class Application {
             expressaoInformada = args[0];
         }
 
-        controller.executeAplicacao(expressaoInformada);
+        int status = controller.executeAplicacao(expressaoInformada);
+
+        System.exit(status);
     }
 }
