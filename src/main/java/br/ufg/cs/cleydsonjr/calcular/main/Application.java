@@ -21,7 +21,7 @@ public abstract class Application {
     public static void main(final String[] args) {
         // Instancia as implementações padrões
         CalculadorExpressao calculadorExpressao = new CalculadorExpressaoParser();
-        CalcularView calcularView = new CalcularConsoleView();
+        CalcularView calcularView = new CalcularConsoleView(System.in, System.out);
 
         // Cria o controller injetando as dependências
         CalcularController controller = new CalcularController(calculadorExpressao, calcularView);

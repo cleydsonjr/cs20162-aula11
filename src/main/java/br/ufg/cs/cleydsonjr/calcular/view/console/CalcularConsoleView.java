@@ -6,6 +6,9 @@ package br.ufg.cs.cleydsonjr.calcular.view.console;
 
 import br.ufg.cs.cleydsonjr.calcular.view.CalcularView;
 
+import java.io.InputStream;
+import java.io.PrintStream;
+
 /**
  * Implementação da camada de visão usando o console para iteração com o usuário.
  */
@@ -16,10 +19,19 @@ public class CalcularConsoleView implements CalcularView {
     private EntradaConsole entradaConsole;
 
     /**
-     * Construtor que monta a classe auxiliar.
+     * Saída padrão para iteração com o usuário.
      */
-    public CalcularConsoleView() {
-        this.entradaConsole = new EntradaConsole(System.in);
+    private PrintStream saida;
+
+    /**
+     * Construtor que monta a classe auxiliar.
+     *
+     * @param entradaPadrao O InputStream padrão de entrada.
+     * @param saidaPadrao   O PrintStream padrão de saída.
+     */
+    public CalcularConsoleView(final InputStream entradaPadrao, final PrintStream saidaPadrao) {
+        this.entradaConsole = new EntradaConsole(entradaPadrao, saidaPadrao);
+        this.saida = saidaPadrao;
     }
 
     /**
@@ -37,7 +49,7 @@ public class CalcularConsoleView implements CalcularView {
      * @param resultado o resultado da expressão.
      */
     public final void informeResultado(final float resultado) {
-        System.out.println(resultado);
+        saida.println(resultado);
     }
 
     /**
@@ -46,6 +58,6 @@ public class CalcularConsoleView implements CalcularView {
      * @param mensagem o resultado da expressão.
      */
     public final void informeErro(final String mensagem) {
-        System.out.println(mensagem);
+        saida.println(mensagem);
     }
 }

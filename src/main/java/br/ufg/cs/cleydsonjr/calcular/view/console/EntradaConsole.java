@@ -5,9 +5,8 @@
 package br.ufg.cs.cleydsonjr.calcular.view.console;
 
 import java.io.InputStream;
+import java.io.PrintStream;
 import java.util.Scanner;
-
-import static java.lang.System.out;
 
 /**
  * Classe auxiliar para encapsular a leitura de entrada do usuário no console.
@@ -19,12 +18,19 @@ public class EntradaConsole {
     private Scanner scanner;
 
     /**
+     * Saída padrão para iteração com o usuário.
+     */
+    private PrintStream saida;
+
+    /**
      * Construtor para classe auxiliar que manipula entradas dos usuários.
      *
-     * @param in InputStream padrão de entrada
+     * @param entradaPadrao InputStream padrão de entrada
+     * @param saidaPadrao   O PrintStream padrão de saída.
      */
-    public EntradaConsole(final InputStream in) {
-        this.scanner = new Scanner(in);
+    public EntradaConsole(final InputStream entradaPadrao, final PrintStream saidaPadrao) {
+        this.scanner = new Scanner(entradaPadrao);
+        this.saida = saidaPadrao;
     }
 
     /**
@@ -34,7 +40,7 @@ public class EntradaConsole {
      * @return O texto que o usuário inseriu
      */
     public final String pergunteString(final String pergunta) {
-        out.println(pergunta);
+        saida.println(pergunta);
         return scanner.nextLine();
     }
 
